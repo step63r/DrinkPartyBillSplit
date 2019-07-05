@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace DrinkPartyBillSplit.Models
 {
-    public class Item
+    /// <summary>
+    /// 飲み会クラス
+    /// </summary>
+    public class Party
     {
         /// <summary>
         /// 飲み会ID
         /// </summary>
-        public string Id { get; set; }
+        public int ID { get; set; }
         /// <summary>
         /// 開催日付
         /// </summary>

@@ -21,8 +21,15 @@ namespace DrinkPartyBillSplit.Views
 
             Item = new Item
             {
-                Text = "Item name",
-                Description = "This is an item description."
+                Name = "飲み会名",
+                Date = new DateTime(2019, 1, 1),
+                Attendees = new List<Attendee>
+                {
+                    new Attendee { GradeID = 1, TotalCount = 3, GuestCount = 0 },
+                    new Attendee { GradeID = 2, TotalCount = 5, GuestCount = 0 },
+                    new Attendee { GradeID = 3, TotalCount = 5, GuestCount = 1 }
+                },
+                TotalFee = 34567
             };
 
             BindingContext = this;

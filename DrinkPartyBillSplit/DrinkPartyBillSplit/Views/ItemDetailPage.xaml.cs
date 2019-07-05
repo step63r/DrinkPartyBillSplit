@@ -5,6 +5,7 @@ using Xamarin.Forms.Xaml;
 
 using DrinkPartyBillSplit.Models;
 using DrinkPartyBillSplit.ViewModels;
+using System.Collections.Generic;
 
 namespace DrinkPartyBillSplit.Views
 {
@@ -28,8 +29,15 @@ namespace DrinkPartyBillSplit.Views
 
             var item = new Item
             {
-                Text = "Item 1",
-                Description = "This is an item description."
+                Name = "飲み会名",
+                Date = new DateTime(2019, 1, 1),
+                Attendees = new List<Attendee>
+                {
+                    new Attendee { GradeID = 1, TotalCount = 3, GuestCount = 0 },
+                    new Attendee { GradeID = 2, TotalCount = 5, GuestCount = 0 },
+                    new Attendee { GradeID = 3, TotalCount = 5, GuestCount = 1 }
+                },
+                TotalFee = 34567
             };
 
             viewModel = new ItemDetailViewModel(item);
