@@ -7,6 +7,7 @@ namespace DrinkPartyBillSplit.Models
     public enum MenuItemType
     {
         Browse,
+        Grade,
         About
     }
     public class HomeMenuItem

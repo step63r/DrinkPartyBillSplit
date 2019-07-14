@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="DrinkPartyBillSplit.Views.GradesPage"
+             Title="{Binding Title}"
+             x:Name="BrowseGradesPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="追加" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="GradesListView" 
+                      ItemsSource="{Binding Grades}" 
+                      VerticalOptions="FillAndExpand" 
+                      HasUnevenRows="True" 
+                      RefreshCommand="{Binding}" 
+                      IsPullToRefreshEnabled="True" 
+                      IsRefreshing="{Binding Mode=OneWay}"
+                      CachingStrategy="RecycleElement">
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

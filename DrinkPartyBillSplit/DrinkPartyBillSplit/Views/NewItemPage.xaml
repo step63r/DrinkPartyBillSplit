@@ -8,16 +8,18 @@
              Title="New Item">
     
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" />
-        <ToolbarItem Text="Save" Clicked="Save_Clicked" />
+        <ToolbarItem Text="キャンセル" Clicked="Cancel_Clicked" />
+        <ToolbarItem Text="保存" Clicked="Save_Clicked" />
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>
         <StackLayout Spacing="20" Padding="15">
-            <Label Text="Name" FontSize="Medium" />
-            <Entry Text="{Binding Item.Name}" d:Text="Item name" FontSize="Small" />
-            <Label Text="Date" FontSize="Medium" />
+            <Label Text="宴会名" FontSize="Medium" />
+            <Entry Text="{Binding Item.Name}" Placeholder="(宴会名を入力)" FontSize="Small" />
+            <Label Text="日付" FontSize="Medium" />
             <DatePicker Date="{Binding Item.Date}" />
+            <Label Text="合計金額" FontSize="Medium" />
+            <Entry Text="{Binding Item.TotalFee}" Placeholder="(合計金額を入力)" Keyboard="Numeric" FontSize="Small" />
             <!--<Editor Text="{Binding Item.Description}" d:Text="Item description" FontSize="Small" Margin="0" />-->
         </StackLayout>
     </ContentPage.Content>

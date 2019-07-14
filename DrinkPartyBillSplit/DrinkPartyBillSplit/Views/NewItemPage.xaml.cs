@@ -19,17 +19,11 @@ namespace DrinkPartyBillSplit.Views
         {
             InitializeComponent();
 
-            Item = new Item
+            Item = new Item()
             {
-                Name = "飲み会名",
-                Date = new DateTime(2019, 1, 1),
-                Attendees = new List<Attendee>
-                {
-                    new Attendee { GradeID = 1, TotalCount = 3, GuestCount = 0 },
-                    new Attendee { GradeID = 2, TotalCount = 5, GuestCount = 0 },
-                    new Attendee { GradeID = 3, TotalCount = 5, GuestCount = 1 }
-                },
-                TotalFee = 34567
+                Name = "",
+                Date = DateTime.Today,
+                TotalFee = 0
             };
 
             BindingContext = this;

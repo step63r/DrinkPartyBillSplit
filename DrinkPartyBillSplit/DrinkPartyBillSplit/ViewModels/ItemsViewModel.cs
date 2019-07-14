@@ -17,7 +17,7 @@ namespace DrinkPartyBillSplit.ViewModels
 
         public ItemsViewModel()
         {
-            Title = "Browse";
+            Title = "一覧";
             Items = new ObservableCollection<Item>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
@@ -32,7 +32,9 @@ namespace DrinkPartyBillSplit.ViewModels
         async Task ExecuteLoadItemsCommand()
         {
             if (IsBusy)
+            {
                 return;
+            }
 
             IsBusy = true;
 
@@ -52,6 +54,17 @@ namespace DrinkPartyBillSplit.ViewModels
             finally
             {
                 IsBusy = false;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void UpdateItems()
+        {
+            if (Application.Current.Properties.ContainsKey("Items"))
+            {
+                Items = Application.Current.Properties["Items"] as ObservableCollection<Item>;
             }
         }
     }

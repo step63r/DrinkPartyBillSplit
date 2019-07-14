@@ -33,6 +33,9 @@ namespace DrinkPartyBillSplit.Views
                     case (int)MenuItemType.Browse:
                         MenuPages.Add(id, new NavigationPage(new ItemsPage()));
                         break;
+                    case (int)MenuItemType.Grade:
+                        MenuPages.Add(id, new NavigationPage(new GradesPage()));
+                        break;
                     case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
                         break;
