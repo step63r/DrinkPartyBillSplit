@@ -20,7 +20,7 @@ namespace DrinkPartyBillSplit.Views
 
             menuItems = new List<HomeMenuItem>
             {
-                new HomeMenuItem {Id = MenuItemType.Browse, Title="一覧" },
+                new HomeMenuItem {Id = MenuItemType.Party, Title="宴会" },
                 new HomeMenuItem {Id = MenuItemType.Grade, Title="役職"},
                 new HomeMenuItem {Id = MenuItemType.About, Title="About" }
             };

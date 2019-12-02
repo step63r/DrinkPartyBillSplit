@@ -1,12 +1,10 @@
-﻿using System;
+﻿using DrinkPartyBillSplit.Models;
+using DrinkPartyBillSplit.Views;
+using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
-
-using DrinkPartyBillSplit.Models;
-using DrinkPartyBillSplit.Views;
 
 namespace DrinkPartyBillSplit.ViewModels
 {
@@ -29,7 +27,7 @@ namespace DrinkPartyBillSplit.ViewModels
             });
         }
 
-        async Task ExecuteLoadItemsCommand()
+        private async Task ExecuteLoadItemsCommand()
         {
             if (IsBusy)
             {

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="DrinkPartyBillSplit.Views.NewGradePage"
+             Title="役職を新規追加">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="キャンセル" Clicked="Cancel_Clicked" />
+        <ToolbarItem Text="保存" Clicked="Save_Clicked" />
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Padding="15">
+            <Label Text="職位" FontSize="Medium" />
+            <Entry Text="{Binding Id}" Placeholder="(職位を入力)" Keyboard="Numeric" FontSize="Small" />
+            <Label Text="役職名" FontSize="Medium" />
+            <Entry Text="{Binding Name}" Placeholder="(役職名を入力)" FontSize="Small" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrinkPartyBillSplit.Android
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrinkPartyBillSplit.iOS", "DrinkPartyBillSplit\DrinkPartyBillSplit.iOS\DrinkPartyBillSplit.iOS.csproj", "{D4624807-CDF7-4A5A-B71A-C461291B770F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrinkPartyBillSplit", "DrinkPartyBillSplit\DrinkPartyBillSplit\DrinkPartyBillSplit.csproj", "{27BF4D70-D597-4E96-9BA1-ABD25CE5A221}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrinkPartyBillSplit", "DrinkPartyBillSplit\DrinkPartyBillSplit\DrinkPartyBillSplit.csproj", "{27BF4D70-D597-4E96-9BA1-ABD25CE5A221}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -115,7 +115,6 @@ Global
 		{D4624807-CDF7-4A5A-B71A-C461291B770F}.Debug|x64.Build.0 = Debug|iPhone
 		{D4624807-CDF7-4A5A-B71A-C461291B770F}.Debug|x64.Deploy.0 = Debug|iPhone
 		{D4624807-CDF7-4A5A-B71A-C461291B770F}.Debug|x86.ActiveCfg = Debug|iPhone
-		{D4624807-CDF7-4A5A-B71A-C461291B770F}.Debug|x86.Build.0 = Debug|iPhone
 		{D4624807-CDF7-4A5A-B71A-C461291B770F}.Debug|x86.Deploy.0 = Debug|iPhone
 		{D4624807-CDF7-4A5A-B71A-C461291B770F}.Release|Any CPU.ActiveCfg = Release|iPhone
 		{D4624807-CDF7-4A5A-B71A-C461291B770F}.Release|Any CPU.Build.0 = Release|iPhone

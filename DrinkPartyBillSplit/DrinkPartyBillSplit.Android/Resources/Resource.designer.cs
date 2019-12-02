@@ -26,6 +26,8 @@ namespace DrinkPartyBillSplit.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::PCLStorage.Resource.String.ApplicationName = global::DrinkPartyBillSplit.Droid.Resource.String.ApplicationName;
+			global::PCLStorage.Resource.String.Hello = global::DrinkPartyBillSplit.Droid.Resource.String.Hello;
 			global::Xamarin.Essentials.Resource.Attribute.alpha = global::DrinkPartyBillSplit.Droid.Resource.Attribute.alpha;
 			global::Xamarin.Essentials.Resource.Attribute.coordinatorLayoutStyle = global::DrinkPartyBillSplit.Droid.Resource.Attribute.coordinatorLayoutStyle;
 			global::Xamarin.Essentials.Resource.Attribute.font = global::DrinkPartyBillSplit.Droid.Resource.Attribute.font;
@@ -7652,6 +7654,12 @@ namespace DrinkPartyBillSplit.Droid
 		
 		public partial class String
 		{
+			
+			// aapt resource value: 0x7f0b004f
+			public const int ApplicationName = 2131427407;
+			
+			// aapt resource value: 0x7f0b004e
+			public const int Hello = 2131427406;
 			
 			// aapt resource value: 0x7f0b0018
 			public const int abc_action_bar_home_description = 2131427352;

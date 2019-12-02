@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="DrinkPartyBillSplit.Views.NewPartyPage"
+             Title="宴会を新規追加">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="キャンセル" Clicked="Cancel_Clicked" />
+        <ToolbarItem Text="保存" Clicked="Save_Clicked" />
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="開催日付" FontSize="Medium" />
+            <DatePicker Date="{Binding Party.Date}" />
+            <Label Text="宴会名" FontSize="Medium" />
+            <Entry Text="{Binding Party.Name}" Placeholder="(宴会名を入力)" FontSize="Small" />
+            <Label Text="合計金額" FontSize="Medium" />
+            <Entry Text="{Binding Item.TotalFee}" Placeholder="(合計金額を入力)" Keyboard="Numeric" FontSize="Small" />
+            <Label Text="参加者リスト" FontSize="Medium" />
+            <!-- TODO -->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

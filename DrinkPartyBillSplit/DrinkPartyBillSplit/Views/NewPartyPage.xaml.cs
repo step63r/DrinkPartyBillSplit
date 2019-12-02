@@ -1,32 +1,35 @@
 ﻿using DrinkPartyBillSplit.Models;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using Xamarin.Forms;
 
 namespace DrinkPartyBillSplit.Views
 {
     /// <summary>
-    /// NewItemPageのコードビハインド
+    /// NewPartyPageのコードビハインド
     /// </summary>
     [DesignTimeVisible(false)]
-    public partial class NewItemPage : ContentPage
+    public partial class NewPartyPage : ContentPage
     {
         /// <summary>
-        /// Itemオブジェクト
+        /// Partyオブジェクト
         /// </summary>
-        public Item Item { get; set; }
+        public Party Party { get; set; }
 
         /// <summary>
         /// コンストラクタ
         /// </summary>
-        public NewItemPage()
+        public NewPartyPage()
         {
             InitializeComponent();
 
-            Item = new Item()
+            Party = new Party()
             {
+                ID = 0,
+                Date = DateTime.Now,
                 Name = "",
-                Date = DateTime.Today,
+                Attendees = new List<Attendee>(),
                 TotalFee = 0
             };
 
@@ -38,9 +41,9 @@ namespace DrinkPartyBillSplit.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void Save_Clicked(object sender, EventArgs e)
+        private async void Save_Clicked(object sender, EventArgs e)
         {
-            MessagingCenter.Send(this, "AddItem", Item);
+            MessagingCenter.Send(this, "AddParty", Party);
             await Navigation.PopModalAsync();
         }
 
@@ -49,7 +52,7 @@ namespace DrinkPartyBillSplit.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void Cancel_Clicked(object sender, EventArgs e)
+        private async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
         }

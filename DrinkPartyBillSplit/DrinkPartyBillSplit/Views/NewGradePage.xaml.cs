@@ -6,28 +6,27 @@ using Xamarin.Forms;
 namespace DrinkPartyBillSplit.Views
 {
     /// <summary>
-    /// NewItemPageのコードビハインド
+    /// NewGradePageのコードビハインド
     /// </summary>
     [DesignTimeVisible(false)]
-    public partial class NewItemPage : ContentPage
+    public partial class NewGradePage : ContentPage
     {
         /// <summary>
-        /// Itemオブジェクト
+        /// Gradeオブジェクト
         /// </summary>
-        public Item Item { get; set; }
+        public Grade Grade { get; set; }
 
         /// <summary>
         /// コンストラクタ
         /// </summary>
-        public NewItemPage()
+        public NewGradePage()
         {
             InitializeComponent();
 
-            Item = new Item()
+            Grade = new Grade()
             {
-                Name = "",
-                Date = DateTime.Today,
-                TotalFee = 0
+                Id = 0,
+                Name = ""
             };
 
             BindingContext = this;
@@ -38,9 +37,9 @@ namespace DrinkPartyBillSplit.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void Save_Clicked(object sender, EventArgs e)
+        private async void Save_Clicked(object sender, EventArgs e)
         {
-            MessagingCenter.Send(this, "AddItem", Item);
+            MessagingCenter.Send(this, "AddGrade", Grade);
             await Navigation.PopModalAsync();
         }
 
@@ -49,7 +48,7 @@ namespace DrinkPartyBillSplit.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void Cancel_Clicked(object sender, EventArgs e)
+        private async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
         }

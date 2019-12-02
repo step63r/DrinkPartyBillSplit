@@ -21,7 +21,7 @@ namespace DrinkPartyBillSplit.Views
 
             MasterBehavior = MasterBehavior.Popover;
 
-            MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
+            MenuPages.Add((int)MenuItemType.Party, (NavigationPage)Detail);
         }
 
         public async Task NavigateFromMenu(int id)
@@ -30,8 +30,8 @@ namespace DrinkPartyBillSplit.Views
             {
                 switch (id)
                 {
-                    case (int)MenuItemType.Browse:
-                        MenuPages.Add(id, new NavigationPage(new ItemsPage()));
+                    case (int)MenuItemType.Party:
+                        MenuPages.Add(id, new NavigationPage(new PartiesPage()));
                         break;
                     case (int)MenuItemType.Grade:
                         MenuPages.Add(id, new NavigationPage(new GradesPage()));

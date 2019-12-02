@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DrinkPartyBillSplit.Models
+﻿namespace DrinkPartyBillSplit.Models
 {
     public enum MenuItemType
     {
-        Browse,
+        Party,
         Grade,
         About
     }
