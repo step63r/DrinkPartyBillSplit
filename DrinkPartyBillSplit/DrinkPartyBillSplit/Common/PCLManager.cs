@@ -66,7 +66,7 @@ namespace DrinkPartyBillSplit.Common
                 var localFolder = FileSystem.Current.LocalStorage;
 
                 // サブフォルダを作成または取得
-                var subFolder = await localFolder.CreateFolderAsync(subFolderName, CreationCollisionOption.OpenIfExists);
+                var subFolder = await localFolder.CreateFolderAsync(subFolderName, CreationCollisionOption.OpenIfExists).ConfigureAwait(false);
 
                 // ファイルを取得
                 var file = await subFolder.GetFileAsync(fileName);
