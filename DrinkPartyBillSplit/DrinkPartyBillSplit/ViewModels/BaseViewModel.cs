@@ -10,9 +10,10 @@ using DrinkPartyBillSplit.Services;
 
 namespace DrinkPartyBillSplit.ViewModels
 {
-    public class BaseViewModel : INotifyPropertyChanged
+    public class BaseViewModel<T> : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>() ?? new MockDataStore();
+        // TODO: (r-uchiyama) ないときnullはよくない
+        public IDataStore<T> DataStore => DependencyService.Get<IDataStore<T>>() ?? null;
 
         bool isBusy = false;
         public bool IsBusy

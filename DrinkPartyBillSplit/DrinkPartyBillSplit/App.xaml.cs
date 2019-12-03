@@ -14,6 +14,7 @@ namespace DrinkPartyBillSplit
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
+            DependencyService.Register<GradeDataStore>();
             MainPage = new MainPage();
         }
 

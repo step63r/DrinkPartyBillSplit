@@ -1,11 +1,12 @@
-﻿using System;
+﻿using DrinkPartyBillSplit.Models;
+using System;
 using System.Windows.Input;
 
 using Xamarin.Forms;
 
 namespace DrinkPartyBillSplit.ViewModels
 {
-    public class AboutViewModel : BaseViewModel
+    public class AboutViewModel : BaseViewModel<Item>
     {
         public AboutViewModel()
         {

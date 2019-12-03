@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace DrinkPartyBillSplit.ViewModels
 {
-    public class ItemsViewModel : BaseViewModel
+    public class ItemsViewModel : BaseViewModel<Item>
     {
         public ObservableCollection<Item> Items { get; set; }
         public Command LoadItemsCommand { get; set; }

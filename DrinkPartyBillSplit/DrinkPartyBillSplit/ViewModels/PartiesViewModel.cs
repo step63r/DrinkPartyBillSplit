@@ -11,7 +11,7 @@ namespace DrinkPartyBillSplit.ViewModels
     /// <summary>
     /// PartiesPageのViewモデルクラス
     /// </summary>
-    public class PartiesViewModel : BaseViewModel
+    public class PartiesViewModel : BaseViewModel<Party>
     {
         #region コマンド・プロパティ
         /// <summary>

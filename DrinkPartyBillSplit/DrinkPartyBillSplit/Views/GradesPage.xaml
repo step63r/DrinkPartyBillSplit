@@ -21,6 +21,19 @@
                       IsPullToRefreshEnabled="True" 
                       IsRefreshing="{Binding Mode=OneWay}"
                       CachingStrategy="RecycleElement">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                <Label Text="{Binding Name}"
+                                       d:Text="{Binding .}"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemTextStyle}"
+                                       FontSize="16" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
     </ContentPage.Content>
