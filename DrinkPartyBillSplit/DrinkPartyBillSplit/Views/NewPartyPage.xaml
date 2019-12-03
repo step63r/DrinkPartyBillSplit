@@ -13,13 +13,13 @@
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout  Spacing="20" Padding="15">
             <Label Text="開催日付" FontSize="Medium" />
             <DatePicker Date="{Binding Party.Date}" />
             <Label Text="宴会名" FontSize="Medium" />
             <Entry Text="{Binding Party.Name}" Placeholder="(宴会名を入力)" FontSize="Small" />
             <Label Text="合計金額" FontSize="Medium" />
-            <Entry Text="{Binding Item.TotalFee}" Placeholder="(合計金額を入力)" Keyboard="Numeric" FontSize="Small" />
+            <Entry Text="{Binding Party.TotalFee}" Placeholder="(合計金額を入力)" Keyboard="Numeric" FontSize="Small" />
             <Label Text="参加者リスト" FontSize="Medium" />
             <!-- TODO -->
         </StackLayout>

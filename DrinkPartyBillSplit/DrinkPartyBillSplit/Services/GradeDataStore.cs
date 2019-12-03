@@ -1,8 +1,9 @@
-﻿using DrinkPartyBillSplit.Models;
+﻿using DrinkPartyBillSplit.Common;
+using DrinkPartyBillSplit.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DrinkPartyBillSplit.Services
@@ -12,19 +13,27 @@ namespace DrinkPartyBillSplit.Services
         /// <summary>
         /// データストア用のコレクション
         /// </summary>
-        public List<Grade> Grades;
+        public ObservableCollection<Grade> Grades;
 
         /// <summary>
         /// コンストラクタ
         /// </summary>
         public GradeDataStore()
         {
-            Grades = new List<Grade>();
+            try
+            {
+                Grades = PCLManager.LoadXmlAsync<ObservableCollection<Grade>>(DataFormat.BaseDirectory, DataFormat.GradeFileName).Result;
+            }
+            catch (Exception)
+            {
+                Grades = new ObservableCollection<Grade>();
+            }
         }
 
         public async Task<bool> AddItemAsync(Grade item)
         {
             Grades.Add(item);
+            await SaveAsync();
             return await Task.FromResult(true);
         }
 
@@ -32,6 +41,7 @@ namespace DrinkPartyBillSplit.Services
         {
             var oldItem = Grades.Where((Grade arg) => arg.Id == int.Parse(id)).FirstOrDefault();
             Grades.Remove(oldItem);
+            await SaveAsync();
             return await Task.FromResult(true);
         }
 
@@ -50,6 +60,13 @@ namespace DrinkPartyBillSplit.Services
             var oldItem = Grades.Where((Grade arg) => arg.Id == item.Id).FirstOrDefault();
             Grades.Remove(oldItem);
             Grades.Add(item);
+            await SaveAsync();
+            return await Task.FromResult(true);
+        }
+
+        private async Task<bool> SaveAsync()
+        {
+            await PCLManager.SaveXmlAsync(GetItemsAsync(), DataFormat.BaseDirectory, DataFormat.GradeFileName);
             return await Task.FromResult(true);
         }
     }

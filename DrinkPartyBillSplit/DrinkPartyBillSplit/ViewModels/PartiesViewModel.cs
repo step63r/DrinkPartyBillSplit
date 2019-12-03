@@ -1,8 +1,8 @@
 ﻿using DrinkPartyBillSplit.Models;
+using DrinkPartyBillSplit.Views;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -33,12 +33,40 @@ namespace DrinkPartyBillSplit.ViewModels
             Parties = new ObservableCollection<Party>();
             LoadPartiesCommand = new Command(async () => await ExecuteLoadPartiesCommand());
 
-            //MessagingCenter.Subscribe<>
+            MessagingCenter.Subscribe<NewPartyPage, Party>(this, "AddParty", async (obj, item) =>
+            {
+                var newItem = item as Party;
+                Parties.Add(newItem);
+                await DataStore.AddItemAsync(newItem);
+            });
         }
 
         private async Task ExecuteLoadPartiesCommand()
         {
+            if (IsBusy)
+            {
+                return;
+            }
 
+            IsBusy = true;
+
+            try
+            {
+                Parties.Clear();
+                var grades = await DataStore.GetItemsAsync(true);
+                foreach (var grade in grades)
+                {
+                    Parties.Add(grade);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
     }
 }
