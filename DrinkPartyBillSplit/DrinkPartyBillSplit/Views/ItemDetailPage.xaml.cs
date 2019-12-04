@@ -27,20 +27,20 @@ namespace DrinkPartyBillSplit.Views
         {
             InitializeComponent();
 
-            var item = new Item
-            {
-                Name = "飲み会名",
-                Date = new DateTime(2019, 1, 1),
-                Attendees = new List<Attendee>
-                {
-                    new Attendee { GradeID = 1, TotalCount = 3, GuestCount = 0 },
-                    new Attendee { GradeID = 2, TotalCount = 5, GuestCount = 0 },
-                    new Attendee { GradeID = 3, TotalCount = 5, GuestCount = 1 }
-                },
-                TotalFee = 34567
-            };
+            //var item = new Item
+            //{
+            //    Name = "飲み会名",
+            //    Date = new DateTime(2019, 1, 1),
+            //    Attendees = new List<Attendee>
+            //    {
+            //        new Attendee { GradeID = 1, TotalCount = 3, GuestCount = 0 },
+            //        new Attendee { GradeID = 2, TotalCount = 5, GuestCount = 0 },
+            //        new Attendee { GradeID = 3, TotalCount = 5, GuestCount = 1 }
+            //    },
+            //    TotalFee = 34567
+            //};
 
-            viewModel = new ItemDetailViewModel(item);
+            //viewModel = new ItemDetailViewModel(item);
             BindingContext = viewModel;
         }
     }

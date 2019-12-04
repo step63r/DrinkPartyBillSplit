@@ -30,6 +30,11 @@ namespace DrinkPartyBillSplit.Services
             }
         }
 
+        /// <summary>
+        /// データを追加する
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         public async Task<bool> AddItemAsync(Party item)
         {
             Parties.Add(item);
@@ -37,6 +42,11 @@ namespace DrinkPartyBillSplit.Services
             return await Task.FromResult(true);
         }
 
+        /// <summary>
+        /// データを削除する
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<bool> DeleteItemAsync(string id)
         {
             var oldItem = Parties.Where((Party arg) => arg.ID == int.Parse(id)).FirstOrDefault();
@@ -45,16 +55,31 @@ namespace DrinkPartyBillSplit.Services
             return await Task.FromResult(true);
         }
 
+        /// <summary>
+        /// データを取得する
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<Party> GetItemAsync(string id)
         {
             return await Task.FromResult(Parties.FirstOrDefault(s => s.ID == int.Parse(id)));
         }
 
+        /// <summary>
+        /// 全てのデータを取得する
+        /// </summary>
+        /// <param name="forceRefresh"></param>
+        /// <returns></returns>
         public async Task<IEnumerable<Party>> GetItemsAsync(bool forceRefresh = false)
         {
             return await Task.FromResult(Parties);
         }
 
+        /// <summary>
+        /// データを更新する
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         public async Task<bool> UpdateItemAsync(Party item)
         {
             var oldItem = Parties.Where((Party arg) => arg.ID == item.ID).FirstOrDefault();
@@ -64,6 +89,10 @@ namespace DrinkPartyBillSplit.Services
             return await Task.FromResult(true);
         }
 
+        /// <summary>
+        /// データをxmlに保存する
+        /// </summary>
+        /// <returns></returns>
         private async Task<bool> SaveAsync()
         {
             await PCLManager.SaveXmlAsync(new ObservableCollection<Party>(await GetItemsAsync()), DataFormat.BaseDirectory, DataFormat.PartyFileName);

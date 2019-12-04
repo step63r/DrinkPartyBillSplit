@@ -30,13 +30,23 @@ namespace DrinkPartyBillSplit.Services
             }
         }
 
+        /// <summary>
+        /// データを追加する
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         public async Task<bool> AddItemAsync(Grade item)
         {
             Grades.Add(item);
             await SaveAsync();
             return await Task.FromResult(true);
         }
-
+        
+        /// <summary>
+        /// データを削除する
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<bool> DeleteItemAsync(string id)
         {
             var oldItem = Grades.Where((Grade arg) => arg.Id == int.Parse(id)).FirstOrDefault();
@@ -45,16 +55,31 @@ namespace DrinkPartyBillSplit.Services
             return await Task.FromResult(true);
         }
 
+        /// <summary>
+        /// データを取得する
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<Grade> GetItemAsync(string id)
         {
             return await Task.FromResult(Grades.FirstOrDefault(s => s.Id == int.Parse(id)));
         }
 
+        /// <summary>
+        /// 全てのデータを取得する
+        /// </summary>
+        /// <param name="forceRefresh"></param>
+        /// <returns></returns>
         public async Task<IEnumerable<Grade>> GetItemsAsync(bool forceRefresh = false)
         {
             return await Task.FromResult(Grades);
         }
 
+        /// <summary>
+        /// データを更新する
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         public async Task<bool> UpdateItemAsync(Grade item)
         {
             var oldItem = Grades.Where((Grade arg) => arg.Id == item.Id).FirstOrDefault();
@@ -64,6 +89,10 @@ namespace DrinkPartyBillSplit.Services
             return await Task.FromResult(true);
         }
 
+        /// <summary>
+        /// データをxmlに保存する
+        /// </summary>
+        /// <returns></returns>
         private async Task<bool> SaveAsync()
         {
             await PCLManager.SaveXmlAsync(new ObservableCollection<Grade>(await GetItemsAsync()), DataFormat.BaseDirectory, DataFormat.GradeFileName);

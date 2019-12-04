@@ -12,7 +12,7 @@ namespace DrinkPartyBillSplit.Models
         /// <summary>
         /// 役職ID
         /// </summary>
-        public int GradeID { get; set; }
+        public Grade Grade { get; set; }
         /// <summary>
         /// 参加人数
         /// </summary>

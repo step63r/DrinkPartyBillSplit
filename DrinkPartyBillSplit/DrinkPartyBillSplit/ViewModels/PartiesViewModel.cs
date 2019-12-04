@@ -39,8 +39,15 @@ namespace DrinkPartyBillSplit.ViewModels
                 Parties.Add(newItem);
                 await DataStore.AddItemAsync(newItem);
             });
+
+            // 初期化時にデータをロード
+            LoadPartiesCommand.Execute(null);
         }
 
+        /// <summary>
+        /// コレクションロードイベント
+        /// </summary>
+        /// <returns></returns>
         private async Task ExecuteLoadPartiesCommand()
         {
             if (IsBusy)
@@ -53,10 +60,10 @@ namespace DrinkPartyBillSplit.ViewModels
             try
             {
                 Parties.Clear();
-                var grades = await DataStore.GetItemsAsync(true);
-                foreach (var grade in grades)
+                var parties = await DataStore.GetItemsAsync(true);
+                foreach (var party in parties)
                 {
-                    Parties.Add(grade);
+                    Parties.Add(party);
                 }
             }
             catch (Exception ex)

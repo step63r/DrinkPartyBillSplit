@@ -44,6 +44,10 @@ namespace DrinkPartyBillSplit.ViewModels
             LoadGradesCommand.Execute(null);
         }
 
+        /// <summary>
+        /// コレクションロードイベント
+        /// </summary>
+        /// <returns></returns>
         private async Task ExecuteLoadGradesCommand()
         {
             if (IsBusy)

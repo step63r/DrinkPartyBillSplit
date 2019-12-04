@@ -29,31 +29,31 @@ namespace DrinkPartyBillSplit.Services
 
             // 参加者のモック作成
             attendees = new List<Attendee>();
-            var mockAttendees = new List<Attendee>
-            {
-                new Attendee { GradeID = 1, TotalCount = 3, GuestCount = 0 },
-                new Attendee { GradeID = 2, TotalCount = 5, GuestCount = 0 },
-                new Attendee { GradeID = 3, TotalCount = 5, GuestCount = 1 }
-            };
-            foreach (var item in mockAttendees)
-            {
-                attendees.Add(item);
-            }
+            //var mockAttendees = new List<Attendee>
+            //{
+            //    new Attendee { GradeID = 1, TotalCount = 3, GuestCount = 0 },
+            //    new Attendee { GradeID = 2, TotalCount = 5, GuestCount = 0 },
+            //    new Attendee { GradeID = 3, TotalCount = 5, GuestCount = 1 }
+            //};
+            //foreach (var item in mockAttendees)
+            //{
+            //    attendees.Add(item);
+            //}
 
-            // 飲み会のモック作成
-            items = new List<Item>();
-            var mockItems = new List<Item>
-            {
-                new Item { Id = Guid.NewGuid().ToString(), Date = new DateTime(2019, 4, 1), Name = "新人歓迎会", Attendees = mockAttendees, TotalFee = 30000 },
-                new Item { Id = Guid.NewGuid().ToString(), Date = new DateTime(2019, 8, 1), Name = "決起集会", Attendees = mockAttendees, TotalFee = 24900 },
-                new Item { Id = Guid.NewGuid().ToString(), Date = new DateTime(2019, 12, 31), Name = "忘年会", Attendees = mockAttendees, TotalFee = 19000 },
-                new Item { Id = Guid.NewGuid().ToString(), Date = new DateTime(2020, 1, 1), Name = "新年会", Attendees = mockAttendees, TotalFee = 45000 },
-                new Item { Id = Guid.NewGuid().ToString(), Date = new DateTime(2019, 3, 31), Name = "送別会", Attendees = mockAttendees, TotalFee = 18500 }
-            };
-            foreach (var item in mockItems)
-            {
-                items.Add(item);
-            }
+            //// 飲み会のモック作成
+            //items = new List<Item>();
+            //var mockItems = new List<Item>
+            //{
+            //    new Item { Id = Guid.NewGuid().ToString(), Date = new DateTime(2019, 4, 1), Name = "新人歓迎会", Attendees = mockAttendees, TotalFee = 30000 },
+            //    new Item { Id = Guid.NewGuid().ToString(), Date = new DateTime(2019, 8, 1), Name = "決起集会", Attendees = mockAttendees, TotalFee = 24900 },
+            //    new Item { Id = Guid.NewGuid().ToString(), Date = new DateTime(2019, 12, 31), Name = "忘年会", Attendees = mockAttendees, TotalFee = 19000 },
+            //    new Item { Id = Guid.NewGuid().ToString(), Date = new DateTime(2020, 1, 1), Name = "新年会", Attendees = mockAttendees, TotalFee = 45000 },
+            //    new Item { Id = Guid.NewGuid().ToString(), Date = new DateTime(2019, 3, 31), Name = "送別会", Attendees = mockAttendees, TotalFee = 18500 }
+            //};
+            //foreach (var item in mockItems)
+            //{
+            //    items.Add(item);
+            //}
         }
 
         public async Task<bool> AddItemAsync(Item item)
