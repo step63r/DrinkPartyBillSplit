@@ -12,8 +12,9 @@
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>
-        <StackLayout>
-            <ListView x:Name="PartiesListView"
+        <ScrollView>
+            <StackLayout>
+                <ListView x:Name="PartiesListView"
                       ItemsSource="{Binding Parties}"
                       VerticalOptions="FillAndExpand"
                       HasUnevenRows="True"
@@ -22,25 +23,26 @@
                       IsRefreshing="{Binding IsBusy, Mode=TwoWay}"
                       CachingStrategy="RecycleElement"
                       ItemSelected="OnItemSelected">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Padding="10">
-                                <Label Text="{Binding Name}"
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="10">
+                                    <Label Text="{Binding Name}"
                                        d:Text="{Binding .}"
                                        LineBreakMode="NoWrap"
                                        Style="{DynamicResource ListItemTextStyle}"
                                        FontSize="16" />
-                                <Label Text="{Binding Date, StringFormat='{0:yyyy/MM/dd}'}"
+                                    <Label Text="{Binding Date, StringFormat='{0:yyyy/MM/dd}'}"
                                        d:Text="Item description"
                                        LineBreakMode="NoWrap"
                                        Style="{DynamicResource ListItemDetailTextStyle}"
                                        FontSize="13" />
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

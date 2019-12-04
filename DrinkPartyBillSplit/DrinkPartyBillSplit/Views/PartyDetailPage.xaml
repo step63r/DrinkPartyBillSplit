@@ -9,25 +9,27 @@
              Title="{Binding Title}">
     
     <ContentPage.Content>
-        <StackLayout Spacing="20" Padding="15">
-            <Label Text="宴会名:" FontSize="Medium" />
-            <Label Text="{Binding Party.Name}" d:Text="宴会名" FontSize="Small" />
-            <Label Text="開催日付:" FontSize="Medium" />
-            <Label Text="{Binding Party.Date, StringFormat='{0:yyyy/MM/dd}'}" d:Text="開催日付" FontSize="Small" />
-            <Label Text="合計金額:" FontSize="Medium" />
-            <Label Text="{Binding Party.TotalFee, StringFormat='{0:N0} 円'}" d:Text="合計金額" FontSize="Small" />
-            <c:ItemsControl ItemsSource="{Binding Bills}">
-                <c:ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <StackLayout Orientation="Horizontal" Spacing="20" Padding="15">
-                            <Label Text="{Binding Grade.Name}" FontSize="Small" />
-                            <Label Text="{Binding Amount, StringFormat='{0:N0} 円'}" FontSize="Small" />
-                        </StackLayout>
-                    </DataTemplate>
-                </c:ItemsControl.ItemTemplate>
-            </c:ItemsControl>
-            <Label Text="端数:" FontSize="Medium" />
-            <Label Text="{Binding Fraction, StringFormat='{0:N0} 円'}" d:Text="端数" FontSize="Small" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout Spacing="20" Padding="15">
+                <Label Text="宴会名:" FontSize="Medium" />
+                <Label Text="{Binding Party.Name}" d:Text="宴会名" FontSize="Small" />
+                <Label Text="開催日付:" FontSize="Medium" />
+                <Label Text="{Binding Party.Date, StringFormat='{0:yyyy/MM/dd}'}" d:Text="開催日付" FontSize="Small" />
+                <Label Text="合計金額:" FontSize="Medium" />
+                <Label Text="{Binding Party.TotalFee, StringFormat='{0:N0} 円'}" d:Text="合計金額" FontSize="Small" />
+                <c:ItemsControl ItemsSource="{Binding Bills}">
+                    <c:ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Orientation="Horizontal" Spacing="20" Padding="15">
+                                <Label Text="{Binding Grade.Name}" FontSize="Small" />
+                                <Label Text="{Binding Amount, StringFormat='{0:N0} 円'}" FontSize="Small" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </c:ItemsControl.ItemTemplate>
+                </c:ItemsControl>
+                <Label Text="端数:" FontSize="Medium" />
+                <Label Text="{Binding Fraction, StringFormat='{0:N0} 円'}" d:Text="端数" FontSize="Small" />
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

@@ -13,11 +13,13 @@
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>
-        <StackLayout Spacing="20" Padding="15">
-            <Label Text="職位" FontSize="Medium" />
-            <Entry Text="{Binding Grade.Id}" Placeholder="(職位を入力)" Keyboard="Numeric" FontSize="Small" />
-            <Label Text="役職名" FontSize="Medium" />
-            <Entry Text="{Binding Grade.Name}" Placeholder="(役職名を入力)" FontSize="Small" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout Spacing="20" Padding="15">
+                <Label Text="職位" FontSize="Medium" />
+                <Entry Text="{Binding Grade.Id}" Placeholder="(職位を入力)" Keyboard="Numeric" FontSize="Small" />
+                <Label Text="役職名" FontSize="Medium" />
+                <Entry Text="{Binding Grade.Name}" Placeholder="(役職名を入力)" FontSize="Small" />
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

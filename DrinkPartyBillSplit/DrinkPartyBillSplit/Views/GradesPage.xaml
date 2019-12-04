@@ -13,8 +13,9 @@
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <StackLayout>
-            <ListView x:Name="GradesListView" 
+        <ScrollView>
+            <StackLayout>
+                <ListView x:Name="GradesListView" 
                       ItemsSource="{Binding Grades}" 
                       VerticalOptions="FillAndExpand" 
                       HasUnevenRows="True" 
@@ -22,20 +23,21 @@
                       IsPullToRefreshEnabled="True" 
                       IsRefreshing="{Binding Mode=OneWay}"
                       CachingStrategy="RecycleElement">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Padding="10">
-                                <Label Text="{Binding Name}"
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="10">
+                                    <Label Text="{Binding Name}"
                                        d:Text="{Binding .}"
                                        LineBreakMode="NoWrap"
                                        Style="{DynamicResource ListItemTextStyle}"
                                        FontSize="16" />
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
