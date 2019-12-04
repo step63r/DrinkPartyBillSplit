@@ -41,7 +41,7 @@ namespace DrinkPartyBillSplit.Views
                 return;
             }
 
-            //await Navigation.PushAsync(new PartyDetailPage(new PartyDetailViewModel(item)));
+            await Navigation.PushAsync(new PartyDetailPage(new PartyDetailViewModel(item)));
 
             PartiesListView.SelectedItem = null;
         }
