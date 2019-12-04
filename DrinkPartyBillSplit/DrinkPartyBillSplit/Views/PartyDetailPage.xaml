@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:c="clr-namespace:DrinkPartyBillSplit.Controls"
              mc:Ignorable="d"
              x:Class="DrinkPartyBillSplit.Views.PartyDetailPage"
              Title="{Binding Title}">
@@ -15,6 +16,18 @@
             <Label Text="{Binding Party.Date, StringFormat='{0:yyyy/MM/dd}'}" d:Text="開催日付" FontSize="Small" />
             <Label Text="合計金額:" FontSize="Medium" />
             <Label Text="{Binding Party.TotalFee, StringFormat='{0:N0} 円'}" d:Text="合計金額" FontSize="Small" />
+            <c:ItemsControl ItemsSource="{Binding Bills}">
+                <c:ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal" Spacing="20" Padding="15">
+                            <Label Text="{Binding Grade.Name}" FontSize="Small" />
+                            <Label Text="{Binding Amount, StringFormat='{0:N0} 円'}" FontSize="Small" />
+                        </StackLayout>
+                    </DataTemplate>
+                </c:ItemsControl.ItemTemplate>
+            </c:ItemsControl>
+            <Label Text="端数:" FontSize="Medium" />
+            <Label Text="{Binding Fraction, StringFormat='{0:N0} 円'}" d:Text="端数" FontSize="Small" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

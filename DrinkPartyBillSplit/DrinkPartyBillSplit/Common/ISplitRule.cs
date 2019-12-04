@@ -1,5 +1,5 @@
 ﻿using DrinkPartyBillSplit.Models;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 
 namespace DrinkPartyBillSplit.Common
@@ -14,6 +14,6 @@ namespace DrinkPartyBillSplit.Common
         /// </summary>
         /// <param name="party">宴会</param>
         /// <returns></returns>
-        Task<List<(Attendee, int)>> CalculateAmountAsync(Party party);
+        Task<ObservableCollection<SplitBill>> CalculateAmountAsync(Party party);
     }
 }
