@@ -7,6 +7,7 @@
              x:Class="DrinkPartyBillSplit.Views.GradesPage"
              Title="{Binding Title}"
              x:Name="BrowseGradesPage">
+    
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="追加" Clicked="AddItem_Clicked" />
     </ContentPage.ToolbarItems>
@@ -17,7 +18,7 @@
                       ItemsSource="{Binding Grades}" 
                       VerticalOptions="FillAndExpand" 
                       HasUnevenRows="True" 
-                      RefreshCommand="{Binding}" 
+                      RefreshCommand="{Binding LoadGradesCommand}" 
                       IsPullToRefreshEnabled="True" 
                       IsRefreshing="{Binding Mode=OneWay}"
                       CachingStrategy="RecycleElement">

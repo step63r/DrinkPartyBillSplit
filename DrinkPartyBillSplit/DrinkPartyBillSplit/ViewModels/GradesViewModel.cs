@@ -39,6 +39,9 @@ namespace DrinkPartyBillSplit.ViewModels
                 Grades.Add(newItem);
                 await DataStore.AddItemAsync(newItem);
             });
+
+            // 初期化時にデータをロード
+            LoadGradesCommand.Execute(null);
         }
 
         private async Task ExecuteLoadGradesCommand()

@@ -66,7 +66,7 @@ namespace DrinkPartyBillSplit.Services
 
         private async Task<bool> SaveAsync()
         {
-            await PCLManager.SaveXmlAsync(GetItemsAsync(), DataFormat.BaseDirectory, DataFormat.GradeFileName);
+            await PCLManager.SaveXmlAsync(new ObservableCollection<Grade>(await GetItemsAsync()), DataFormat.BaseDirectory, DataFormat.GradeFileName);
             return await Task.FromResult(true);
         }
     }
