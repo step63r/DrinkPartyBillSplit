@@ -17,12 +17,14 @@
                 <Label Text="{Binding Party.Date, StringFormat='{0:yyyy/MM/dd}'}" d:Text="開催日付" FontSize="Small" />
                 <Label Text="合計金額:" FontSize="Medium" />
                 <Label Text="{Binding Party.TotalFee, StringFormat='{0:N0} 円'}" d:Text="合計金額" FontSize="Small" />
+                <Label Text="一人あたり支払金額:" FontSize="Medium" />
                 <c:ItemsControl ItemsSource="{Binding Bills}">
                     <c:ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <StackLayout Orientation="Horizontal" Spacing="20" Padding="15">
                                 <Label Text="{Binding Grade.Name}" FontSize="Small" />
-                                <Label Text="{Binding Amount, StringFormat='{0:N0} 円'}" FontSize="Small" />
+                                <Label Text="{Binding Payer, StringFormat='{0:N0} 人'}" FontSize="Small" />
+                                <Label Text="{Binding Amount, StringFormat=' ({0:N0} 円 / 人)'}" FontSize="Small" />
                             </StackLayout>
                         </DataTemplate>
                     </c:ItemsControl.ItemTemplate>

@@ -28,6 +28,10 @@ namespace DrinkPartyBillSplit.Common
             // 割り勘金額の計算
             foreach (var attendee in party.Attendees)
             {
+                // その役職の主賓除く参加人数
+                int gradeCount = 0;
+
+                // その役職が1人も参加していないならスキップ
                 if (attendee.TotalCount == 0)
                 {
                     continue;
@@ -36,6 +40,7 @@ namespace DrinkPartyBillSplit.Common
                 ret.Add(new SplitBill()
                 {
                     Grade = attendee.Grade,
+                    Payer = attendee.TotalCount - attendee.GuestCount,
                     Amount = party.TotalFee / numPayers
                 });
             }
