@@ -47,10 +47,9 @@ namespace DrinkPartyBillSplit.Services
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<bool> DeleteItemAsync(string id)
+        public async Task<bool> DeleteItemAsync(Party item)
         {
-            var oldItem = Parties.Where((Party arg) => arg.ID == int.Parse(id)).FirstOrDefault();
-            Parties.Remove(oldItem);
+            Parties.Remove(item);
             await SaveAsync();
             return await Task.FromResult(true);
         }

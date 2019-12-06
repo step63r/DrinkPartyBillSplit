@@ -7,8 +7,9 @@
              x:Class="DrinkPartyBillSplit.Views.GradesPage"
              Title="{Binding Title}"
              x:Name="BrowseGradesPage">
-    
+
     <ContentPage.ToolbarItems>
+        <ToolbarItem Text="削除" Clicked="RemoveItem_Clicked" />
         <ToolbarItem Text="追加" Clicked="AddItem_Clicked" />
     </ContentPage.ToolbarItems>
 
@@ -16,13 +17,14 @@
         <ScrollView>
             <StackLayout>
                 <ListView x:Name="GradesListView" 
-                      ItemsSource="{Binding Grades}" 
-                      VerticalOptions="FillAndExpand" 
-                      HasUnevenRows="True" 
-                      RefreshCommand="{Binding LoadGradesCommand}" 
-                      IsPullToRefreshEnabled="True" 
-                      IsRefreshing="{Binding Mode=OneWay}"
-                      CachingStrategy="RecycleElement">
+                          ItemsSource="{Binding Grades}"
+                          SelectedItem="{Binding SelectedGrade}"
+                          VerticalOptions="FillAndExpand" 
+                          HasUnevenRows="True" 
+                          RefreshCommand="{Binding LoadGradesCommand}" 
+                          IsPullToRefreshEnabled="True" 
+                          IsRefreshing="{Binding Mode=OneWay}"
+                          CachingStrategy="RecycleElement">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>

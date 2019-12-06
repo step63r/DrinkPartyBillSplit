@@ -13,7 +13,6 @@ namespace DrinkPartyBillSplit
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
             DependencyService.Register<PartyDataStore>();
             DependencyService.Register<GradeDataStore>();
             MainPage = new MainPage();

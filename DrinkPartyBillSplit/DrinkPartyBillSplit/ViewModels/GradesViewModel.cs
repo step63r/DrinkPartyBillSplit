@@ -19,6 +19,10 @@ namespace DrinkPartyBillSplit.ViewModels
         /// </summary>
         public ObservableCollection<Grade> Grades { get; set; }
         /// <summary>
+        /// 選択された役職
+        /// </summary>
+        public Grade SelectedGrade { get; set; }
+        /// <summary>
         /// コレクションロードコマンド
         /// </summary>
         public Command LoadGradesCommand { get; set; }
@@ -38,6 +42,17 @@ namespace DrinkPartyBillSplit.ViewModels
                 var newItem = item as Grade;
                 Grades.Add(newItem);
                 await DataStore.AddItemAsync(newItem);
+            });
+
+            MessagingCenter.Subscribe<GradesPage, Grade>(this, "RemoveGrade", async (obj, item) =>
+            {
+                if (item != null)
+                {
+                    var targetItem = item as Grade;
+                    Grades.Remove(targetItem);
+                    await DataStore.DeleteItemAsync(targetItem);
+                    LoadGradesCommand.Execute(null);
+                }
             });
 
             // 初期化時にデータをロード

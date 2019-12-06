@@ -28,5 +28,10 @@ namespace DrinkPartyBillSplit.Views
         {
             await Navigation.PushModalAsync(new NavigationPage(new NewGradePage()));
         }
+
+        private void RemoveItem_Clicked(object sender, EventArgs e)
+        {
+            MessagingCenter.Send(this, "RemoveGrade", _viewModel.SelectedGrade);
+        }
     }
 }
